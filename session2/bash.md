@@ -1,17 +1,15 @@
 ---
 layout: default
-title: Bash Script Control of GPIO Ports
-date: September 4, 2013
+title: Bash Control of GPIO Ports
+date: September 14, 2013
 ---
 
-##Control of GPIO Ports
-
+##Bash Script Control of GPIO Ports
 The Pi's GPIO ports can be controlled from the command line (i.e. bash), python scripts, and C/C++ programs. There are 26 GPIO ports available on the Pi. Some of them have special purposes or special hardware configurations and should be avoided for normal use.
 
-##Using GPIO from bash
+####Using GPIO from bash
 
-The following commands should be run as root (type 'sudo bash' to become root). This code sets up pin 18 to be an output, sets the pin high and then sets it low. The first export command is needed to tell the Raspberry Pi we are about to being using pin 18. Without this command the gpio18 directory will not be visible. 
-Writing the values 1 and 0 to the "value" file set the output pin to logic HIGH and logic LOW respectively. For the Raspberry Pi, HIGH is 3.3V and LOW is 0V.
+The following commands should be run as root (type 'sudo bash' to become root). This code sets up pin 18 to be an output, sets the pin high and then sets it low.
 
 {% highlight bash %}
 #   Exports pin to userspace
@@ -25,8 +23,8 @@ echo "1" > /sys/class/gpio/gpio18/value
 
 # Sets pin 18 to low
 echo "0" > /sys/class/gpio/gpio18/value 
-{% endhighlight %}
 
+{% endhighlight %}
 
 This next snippet sets up pin 4 to be an input, then reads the value of the input.
 

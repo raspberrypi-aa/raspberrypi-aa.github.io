@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Project 1- LED Blink and Stopwatch</title>
+        <title>Session 2- LED Blink and Stopwatch Examples</title>
         <meta name="viewport" content="width=device-width">
 
         <!-- syntax highlighting CSS -->
@@ -37,14 +37,16 @@
         <div class="container">
           <div class="site">
 
-                <h2>Project 1 - LED Blink and Stopwatch</h2>
+                <h2>Session 2 - LED Blink and Stopwatch Examples</h2>
 
-<p>This project will be completed in two parts. First, write a short program that will blink an LED every x seconds. The user should be asked for input to determine how often to blink the LED. The LED should be connected to GPIO Pin 18 as shown in the below diagram. A 560 Ohm resistor is used to limit the current through the LED to 2mA.</p>
+<p>This example will be shown in two parts. First, we&#39;ll write a short program that will blink an LED every x seconds. The LED should be connected to GPIO Pin 18 as shown in the below diagram. A 560 Ohm resistor is used to limit the current through the LED to 2 mA. A smaller resistor(or none) would allow too much current through the LED and the Raspberry Pi&#39;s GPIO port, potentially damaging the port and the LED. </p>
 
-<p>The current through the LED is determined by an equation known as Ohms law. It takes the form V=IR, where V is the voltage drop across the resistor, I is the current through the resistor and R is the resistance.  In this case, the output of the Raspberry Pi is 3.3V and the voltage drop across the LED is about 1.2V. This means the resistor has 1.1V remaining across it. Additionally, we know the Raspberry Pi output pin is capable of at most 4mA of current, but we will only use 2mA of that available current. So we setup our equation like this: 
-V=IR
-1.1V = .004A * R
-R=550 Ohms</p>
+<h4>Why a 560 Ohm resistor?</h4>
+
+<p>The resistor is needed to disspiate extra electrical energy (voltage) coming from the Raspberry Pi. The Pi&#39;s digital outputs run at 3.3V and most LEDs have a forward voltage of about 2.2 Volts. As the voltage supply (3.3V) always equals the voltage load (LED + Resistor), our resistor will have a drop of 1.1V across it. We must also keep in mind the current drawn from the Raspberry Pi&#39;s output pin. The Raspberry Pi can only source up to 4mA of current, meaning we must choose our resistor to limit the current to less than 4mA at 1.1V.  The current through the LED is determined by an equation known as Ohms Law. It takes the form V=IR, where V is the voltage drop across the resistor, I is the current through the resistor and R is the resistance. We&#39;ll use 2mA just to be safe. Using Ohm&#39;s Law, we can determine the proper resistance to use is 560 Ohms.<br/>
+V=IR<br/>
+1.1V = .002A * R<br/>
+R=550 Ohms<br/></p>
 
 <p>A smaller resistor(or none) would allow too much curren through the LED and the Raspberry Pi&#39;s GPIO port, potentially damaging the port and the LED.</p>
 
@@ -59,7 +61,7 @@ R=550 Ohms</p>
 <p><img src="https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/Schematics/RaspberryPi-Stopwatch.png" alt="Stopwatch Breadboard Layout" width="300px" /></p>
 
 <p>Source Code
-<script src="http://gist-it.appspot.com/github/limited/IntroToRaspberryPi/blob/master/RaspberryPi_Toolbox/Project1-Beginner.py"></script></p>
+<script src="http://gist-it.appspot.com/github/raspberrypi-aa/raspberrypi-aa/blob/master/RaspberryPi_Toolbox/Project1-Beginner.py"></script></p>
 
           </div>
         </div> <!-- /container -->

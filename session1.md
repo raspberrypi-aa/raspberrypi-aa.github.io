@@ -25,12 +25,5 @@ Please install the following driver (and software) as appropriate for your opera
 ##Class Resources
 * [Materials List](https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/Materials%20List.pdf)
 * [Connecting to Raspberry Pi](https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/Connecting%20to%20Raspberry%20Pi.pdf)
-* Project 1 - General Purpose Inputs Outputs (GPIO)
-    * [bash script control of GPIO Ports](session1/bash_control.html)
-    * [Exercise 1 - LED Blink and Stopwatch](session1/led_blink.html)
-    * [Bonus Exercise - Simon Says](session1/simon_says.html)
 <br/>
 
-## References
-* [Breadboard Connections](https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/Breadboard%20Connections.jpg)
-* [raspberry-gpio-python Documentation](https://code.google.com/p/raspberry-gpio-python/wiki/Examples)

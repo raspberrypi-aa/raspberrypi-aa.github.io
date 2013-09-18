@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Session 1- Raspberry Pi Basics</title>
+        <title>Bash Control of GPIO Ports</title>
         <meta name="viewport" content="width=device-width">
 
         <!-- syntax highlighting CSS -->
@@ -37,41 +37,33 @@
         <div class="container">
           <div class="site">
 
-                <h2>Session 1 - Raspberry Pi Basics</h2>
+                <h2>Bash Script Control of GPIO Ports</h2>
 
-<p>This session covers an overview of the Raspberry Pi&#39;s hardware and software capabilities. You will learn how to start your Raspberry Pi and begin interacting with it for the first time. You will connect to it with a serial cable and then over an ssh network connection. Once connected, you will begin exploring how to write python scripts that can actuate motors and LEDs and interact with external switches and buttons. </p>
+<p>The Pi&#39;s GPIO ports can be controlled from the command line (i.e. bash), python scripts, and C/C++ programs. There are 26 GPIO ports available on the Pi. Some of them have special purposes or special hardware configurations and should be avoided for normal use.</p>
 
-<h3>Before class:</h3>
+<h4>Using GPIO from bash</h4>
 
-<p>Please install the following driver (and software) as appropriate for your operating system:  </p>
+<p>The following commands should be run as root (type &#39;sudo bash&#39; to become root). This code sets up pin 18 to be an output, sets the pin high and then sets it low.</p>
 
-<ul>
-<li>Windows 8 : <strong>NOT SUPPORTED</strong>. Please contact me if you have only a Windows 8 system</li>
-<li>Windows XP/Windows 7: 
+<div class="highlight"><pre><code class="bash"><span class="c">#   Exports pin to userspace</span>
+<span class="nb">echo</span> <span class="s2">&quot;18&quot;</span> &gt; /sys/class/gpio/export                  
 
-<ul>
-<li><a href="https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/PL2303_Prolific_DriverInstaller_v1_8_0.zip">Prolific PL2303 Windows Driver</a></li>
-<li><a href="http://the.earth.li/%7Esgtatham/putty/latest/x86/putty.exe">PuTTY (SSH Client)</a></li>
-</ul></li>
-<li>OS X Lion (10.7+):
+<span class="c"># Sets pin 18 as an output</span>
+<span class="nb">echo</span> <span class="s2">&quot;out&quot;</span> &gt; /sys/class/gpio/gpio18/direction
 
-<ul>
-<li><a href="https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/PL2303_Serial-USB_on_OSX_Lion.pkg">Prolific PL2303 OS X Lion Driver</a></li>
-</ul></li>
-<li>OS X (10.6 and below):
+<span class="c"># Sets pin 18 to high</span>
+<span class="nb">echo</span> <span class="s2">&quot;1&quot;</span> &gt; /sys/class/gpio/gpio18/value
 
-<ul>
-<li><a href="https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/osx-pl2303-0.3.1-10.4-universal.dmg">Prolific PL2303 OS X Driver</a></li>
-</ul></li>
-</ul>
+<span class="c"># Sets pin 18 to low</span>
+<span class="nb">echo</span> <span class="s2">&quot;0&quot;</span> &gt; /sys/class/gpio/gpio18/value 
+</code></pre></div>
 
-<h2>Class Resources</h2>
+<p>This next snippet sets up pin 4 to be an input, then reads the value of the input.</p>
 
-<ul>
-<li><a href="https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/Materials%20List.pdf">Materials List</a></li>
-<li><a href="https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/Connecting%20to%20Raspberry%20Pi.pdf">Connecting to Raspberry Pi</a>
-<br/></li>
-</ul>
+<div class="highlight"><pre><code class="bash"><span class="nb">echo</span> <span class="s2">&quot;4&quot;</span> &gt; /sys/class/gpio/export
+<span class="nb">echo</span> <span class="s2">&quot;in&quot;</span> &gt; /sys/class/gpio/gpio4/direction
+cat /sys/class/gpio/gpio4/value
+</code></pre></div>
 
           </div>
         </div> <!-- /container -->

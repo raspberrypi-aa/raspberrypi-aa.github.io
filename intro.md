@@ -43,9 +43,9 @@ This class is targeted at those who are interested in learning more about using 
 
 
 ####References 
-* [Raspberry Pi Datasheet](https://bitbucket.org/friede/artisanasylum-introductiontoraspberrypi/downloads/BCM2835-ARM-Peripherals.pdfBCM2835-ARM-Peripherals.pdf)
+* [Raspberry Pi Datasheet](https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/BCM2835-ARM-Peripherals.pdf)
 * [Raspberry Pi Port Diagram](https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/RaspberryPi-Ports.JPG)
-* [Raspberry Pi Schematic](https://bitbucket.org/friede/artisanasylum-introductiontoraspberrypi/downloads/Raspberry-Pi-Schematics-R1.0.pdf)
+* [Raspberry Pi Schematic](https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/Raspberry-Pi-Schematics-R1.0.pdf)
 * [RPi.GPIO Documentation](https://code.google.com/p/raspberry-gpio-python/)
 * [Adafruit Occidentalis v0.2 (Suggested Linux Documentation)](http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/occidentalis-v0-dot-2)  
 

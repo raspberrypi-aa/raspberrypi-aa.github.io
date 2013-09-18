@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Session 1- Raspberry Pi Basics</title>
+        <title>Session 2- Reaction Timer</title>
         <meta name="viewport" content="width=device-width">
 
         <!-- syntax highlighting CSS -->
@@ -37,41 +37,17 @@
         <div class="container">
           <div class="site">
 
-                <h2>Session 1 - Raspberry Pi Basics</h2>
+                <h2>Session 2 - Reaction Timer</h2>
 
-<p>This session covers an overview of the Raspberry Pi&#39;s hardware and software capabilities. You will learn how to start your Raspberry Pi and begin interacting with it for the first time. You will connect to it with a serial cable and then over an ssh network connection. Once connected, you will begin exploring how to write python scripts that can actuate motors and LEDs and interact with external switches and buttons. </p>
+<p>This project will reuse the circuit layout from Project 1. You will create a reaction timer. The Raspberry Pi will turn on an LED and start a timer. The goal is to test your reaction time by pressing the button as close as possible to when the light turns on. When the button is pressed, turn the light off and print out the amount of time between the light turning on and the button press.</p>
 
-<h3>Before class:</h3>
+<p>For better accuracy, you should use the GPIO interrupt functions (think wait<em>for</em>edge(pin, GPIO.FALLING))</p>
 
-<p>Please install the following driver (and software) as appropriate for your operating system:  </p>
+<p><img src="https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/Schematics/RaspberryPi-Stopwatch.png"/></p>
 
-<ul>
-<li>Windows 8 : <strong>NOT SUPPORTED</strong>. Please contact me if you have only a Windows 8 system</li>
-<li>Windows XP/Windows 7: 
+<h3>Source Code</h3>
 
-<ul>
-<li><a href="https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/PL2303_Prolific_DriverInstaller_v1_8_0.zip">Prolific PL2303 Windows Driver</a></li>
-<li><a href="http://the.earth.li/%7Esgtatham/putty/latest/x86/putty.exe">PuTTY (SSH Client)</a></li>
-</ul></li>
-<li>OS X Lion (10.7+):
-
-<ul>
-<li><a href="https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/PL2303_Serial-USB_on_OSX_Lion.pkg">Prolific PL2303 OS X Lion Driver</a></li>
-</ul></li>
-<li>OS X (10.6 and below):
-
-<ul>
-<li><a href="https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/osx-pl2303-0.3.1-10.4-universal.dmg">Prolific PL2303 OS X Driver</a></li>
-</ul></li>
-</ul>
-
-<h2>Class Resources</h2>
-
-<ul>
-<li><a href="https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/Materials%20List.pdf">Materials List</a></li>
-<li><a href="https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/Connecting%20to%20Raspberry%20Pi.pdf">Connecting to Raspberry Pi</a>
-<br/></li>
-</ul>
+<script src="http://gist-it.appspot.com/github/raspberrypi-aa/raspberrypi-aa/blob/master/RaspberryPi_Toolbox/Project2-Beginner.py"></script>
 
           </div>
         </div> <!-- /container -->
