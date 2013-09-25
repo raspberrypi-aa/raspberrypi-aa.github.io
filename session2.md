@@ -12,12 +12,14 @@ Our second class will jump into the use of input/output ports then move on to dr
   To use the interrupt features of the RPi-GPIO library, we need to upgrade to the latest version. Run these commands on your Raspberry Pi:
 {% highlight bash %}
   wget https://raspberry-gpio-python.googlecode.com/files/python-rpi.gpio_0.5.3a-1_armhf.deb
-  sudo deb -i python-rpi.gpio_0.5.3a-1_armhf.deb
+  sudo easy_install pip
+  sudo pip uninstall RPi.GPIO
+  sudo dpkg -i python-rpi.gpio_0.5.3a-1_armhf.deb
 {% endhighlight %}
 
 Once complete, you can check the installation by running: 
 {% highlight bash %}
-python -c "import RPi.GPIO; print RPi.GPIO.version"
+python -c "import RPi.GPIO; print RPi.GPIO.VERSION"
 {% endhighlight %}
 You should see the value "0.5.3a" printed out.
 
