@@ -88,14 +88,14 @@ To combine Raspberry Pi with an Arduino, you can use the Firmata protocol with P
   sudo pip install pyfirmata
 </code></pre></div>
 
-<p>Use a USB cable to connect the Arduino with the Raspberry Pi (remember to use the big USB Standard A connector and not the smaller Micro B power connector). You can now find the USB name of the Arduino by running &#39;ls -lrt /dev/tty*&#39;. On my Raspberry Pi, it was listed as /dev/ttyAMA0. Remember this value for later.</p>
+<p>Use a USB cable to connect the Arduino with the Raspberry Pi (remember to use the big USB Standard A connector and not the smaller Micro B power connector). You can now find the USB name of the Arduino by running &#39;ls -lrt /dev/tty*&#39;. On my Raspberry Pi, it was listed as /dev/ttyUSB0. Remember this value for later.</p>
 
 <h3>Connecting to an Arduino</h3>
 
 <p>To control an Arduino from a Python script on your Raspberry Pi, you must first import the Arduino and util classes from the pyfirmata module. Then, create an object using the USB address you found in the previous step</p>
 
 <div class="highlight"><pre><code class="python">  <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pyfirmata</span> <span class="kn">import</span> <span class="n">Arduino</span><span class="p">,</span> <span class="n">util</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">board</span> <span class="o">=</span> <span class="n">Arduino</span><span class="p">(</span><span class="s">&#39;/dev/ttyAMA0&#39;</span><span class="p">)</span>
+  <span class="o">&gt;&gt;&gt;</span> <span class="n">board</span> <span class="o">=</span> <span class="n">Arduino</span><span class="p">(</span><span class="s">&#39;/dev/ttyUSB0&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 <h3>Controlling Arduino GPIO</h3>

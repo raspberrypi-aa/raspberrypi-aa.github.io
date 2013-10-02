@@ -53,7 +53,7 @@ Next, your Raspberry Pi must be setup with the python firmata libraries. Run the
   sudo apt-get install python-serial
   sudo pip install pyfirmata
 {% endhighlight %}
-Use a USB cable to connect the Arduino with the Raspberry Pi (remember to use the big USB Standard A connector and not the smaller Micro B power connector). You can now find the USB name of the Arduino by running 'ls -lrt /dev/tty*'. On my Raspberry Pi, it was listed as /dev/ttyAMA0. Remember this value for later.
+Use a USB cable to connect the Arduino with the Raspberry Pi (remember to use the big USB Standard A connector and not the smaller Micro B power connector). You can now find the USB name of the Arduino by running 'ls -lrt /dev/tty*'. On my Raspberry Pi, it was listed as /dev/ttyUSB0. Remember this value for later.
 
 ### Connecting to an Arduino
 
@@ -61,7 +61,7 @@ To control an Arduino from a Python script on your Raspberry Pi, you must first 
 
 {% highlight python %}
   >>> from pyfirmata import Arduino, util
-  >>> board = Arduino('/dev/ttyAMA0')
+  >>> board = Arduino('/dev/ttyUSB0')
 {% endhighlight %}
 
 ### Controlling Arduino GPIO

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Python Requests</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/stylesheet.css">
+
+    </head>
+    <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="">View on GitHub</a>
+
+          <h1 id="project_title">Introduction to Raspberry Pi</h1>
+          <h2 id="project_tagline">Artisan's Asylum</h2>
+<!--
+          <section id="downloads">
+            <a class="zip_download_link" href="#">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="#">Download this project as a tar.gz file</a>
+          </section>
+-->
+        </header>
+    </div>
+    <!-- End Header -->
+
+   <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <div class="container">
+          <div class="site">
+
+                <h2>Making HTTP Requests with Python-Requests</h2>
+
+<p>Python includes a built-in HTTP client, urllib2, but its interface is clunky and hard to use. There exists a much better and easier to use HTTP client interface called <a href="http://www.python-requests.org/en/latest/">Python Requests</a>. Requests is not included with Python by default, so we must install it. </p>
+
+<h2>Installing Requests</h2>
+
+<p>Still using a virtual environment:</p>
+
+<div class="highlight"><pre><code class="bash">virtualenv requests
+<span class="nb">source </span>requests/bin/activate
+pip install requests
+</code></pre></div>
+
+<h2>Making a GET request</h2>
+
+<p>The simplest use of this library is making an HTTP GET Request. More flexibility can be added in the form of query parameters, authentication, custom request headers, cookies, and more. Requests also provides a nicely formatted response object, complete with HTTP Status code (that error 404 everyone loves).</p>
+
+<p>At its simplest, Requests is used as:</p>
+
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;http://google.com&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span>
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1000</span><span class="p">]</span>
+</code></pre></div>
+
+<p>To add on a query parameter, include a &#39;params&#39; object in the request</p>
+
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;http://google.com&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;q&#39;</span><span class="p">:</span> <span class="s">&#39;raspberry pi&#39;</span><span class="p">})</span>
+</code></pre></div>
+
+<p>To add on a header, include a &#39;headers&#39; object in the request</p>
+
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;http://google.com&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;X-Platform&#39;</span><span class="p">:</span> <span class="s">&#39;RaspberryPi&#39;</span><span class="p">})</span>
+</code></pre></div>
+
+<p>If you are accessing a website that needs authentication (Basic, Digest, OAuth1), Requests can handle it as well. To use authentication, include an &#39;auth&#39; object in the request. The authentication defaults to HTTP Basic (username/password in the clear) if one is not specified.</p>
+
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;http://google.com&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="k">pass</span><span class="s">&#39;))</span>
+</code></pre></div>
+
+<h2>References</h2>
+
+<ul>
+<li><a href="http://www.python-requests.org/en/latest/">Python Requests</a></li>
+<li><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">HTTP Status Codes</a></li>
+</ul>
+
+          </div>
+        </div> <!-- /container -->
+      </section>
+    </div>
+
+  <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+                    <div class="footer">
+              <div class="contact">
+                <p>
+                  Eric Friedrich<br />
+                  your@email.com
+                </p>
+              </div>
+              <div class="contact">
+                <p>
+                  <a href="http://github.com/yourusername/">github.com/limited</a><br />
+                  <a href="http://twitter.com/yourusername/">twitter.com/limited00</a><br />
+                </p>
+              </div>
+            </div>
+        <p class="copyright">Slate theme maintained by <a href="https://github.com/jsncostello">Jason Costello</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+ <!-- End Footer -->
+
+    </body>
+</html>

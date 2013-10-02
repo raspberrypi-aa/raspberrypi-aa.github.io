@@ -1,0 +1,17 @@
+---
+layout: default
+title: Session 4 - Internet Enabling the Raspberry Pi
+date: October 1, 2013
+---
+
+## Session 4 - Internet Enabling the Raspberry Pi
+This session will be focused on connecting the Raspberry Pi to the Internet. Creating web-based interfaces for your Raspberry Pi applications greatly widens the range and usefulness of your projects. Check the temperature of your house using your smarthphone, or tweet pictures of your cat while you are at work. We'll discuss Flask, a Python HTTP framework to create a web server. We'll also cover using the Raspberry Pi as an HTTP client to access popular APIs like Twitter, Xively, or my current favorite, Dark Sky.
+
+Since many APIs are easier to use with 3rd party libraries, we'll discuss how to use Python's virtual environments to manage open source dependencies.
+
+## Class Resources
+* [Python Flask Framework](session4/flask.html)
+* [Python virtualenv](session4/venv.html)
+* [Python Requests](session4/requests.html)
+* [Twitter API Example](session4/twitter.html)
+* [Dark Sky Weather Forecaster](session4/darksky.html)

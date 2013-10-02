@@ -28,7 +28,9 @@ This class is targeted at those who are interested in learning more about using 
 * Using PWM functionality, controlling servo motors  
 <br/>
 
-####Session 3 - [Audio, SPI and I2C Communications](session3.html)
+####Session 3 - [PWM, Audio, Arduino Control, SPI, I2C](session3.html)
+* Generating PWM/Servo control signals
+* Controlling an arduino from the Raspberry Pi
 * Playing audio on the Raspberry Pi
 * Using an I2C GPIO Port Expander
 * Using an SPI Analog to Digital Converter  
