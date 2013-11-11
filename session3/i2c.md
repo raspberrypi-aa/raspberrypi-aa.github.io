@@ -163,4 +163,4 @@ if __name__ == '__main__':
 
 {% endhighlight %}
 
-[Solution Source Code](https://github.com/raspberrypi-aa/raspberrypi-aa/blob/master/RaspberryPi_Toolbox/i2c_mcp23008_test.py)
+[Solution Source Code](https://github.com/raspberrypi-aa/raspberrypi-aa/blob/master/i2c_mcp23008_test.py)

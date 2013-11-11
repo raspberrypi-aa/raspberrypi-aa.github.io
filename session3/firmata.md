@@ -49,8 +49,7 @@ Firmata control of the Arduino requires loading an Arduino with the special Firm
 Next, your Raspberry Pi must be setup with the python firmata libraries. Run the following commands:
 
 {% highlight bash %}
-  sudo easy_install pip
-  sudo apt-get install python-serial
+  sudo apt-get install python-pip python-serial
   sudo pip install pyfirmata
 {% endhighlight %}
 Use a USB cable to connect the Arduino with the Raspberry Pi (remember to use the big USB Standard A connector and not the smaller Micro B power connector). You can now find the USB name of the Arduino by running 'ls -lrt /dev/tty*'. On my Raspberry Pi, it was listed as /dev/ttyUSB0. Remember this value for later.

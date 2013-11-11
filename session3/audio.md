@@ -7,12 +7,12 @@ date: September 24, 2013
 ## Audio Output
 
 Audio output on the Raspberry Pi is done through either the HDMI connector or the 1/8" blue headphone connector. Control of which connector the audio is present on is done through the amixer command. amixer is one of a suite of the ALSA control tools. ALSA is the Advanced Linux Sound Architecture and provides a set of utilities to configure and control sound devices on Linux computers. 
-To install the ALSA tools you will need, run
+To install the ALSA tools you will need to run the following. mpg321 is used to play mp3s
 
 {% highlight bash %}
 sudo apt-get update
 sudo apt-get install alsa-utils
-sudo apt-get install mpg321 to play mp3s
+sudo apt-get install mpg321 
      0 upgraded, 30 newly installed, 0 to remove and 301 not upgraded.
 {% endhighlight %}
 

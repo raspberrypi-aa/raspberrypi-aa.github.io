@@ -19,6 +19,6 @@ Use the layout from the Stopwatch sketch, but add additional LEDs to ports 14 an
 
 ### Source Code
 You'll need to complete some of these functions in order for the program to work. These places are marked by "# IMPLEMENT THIS FUNCTION".
-<script src="http://gist-it.appspot.com/github/raspberrypi-aa/raspberrypi-aa/blob/master/RaspberryPi_Toolbox/Project1-Intermediate.py?footer=0"></script>
+<script src="http://gist-it.appspot.com/github/raspberrypi-aa/raspberrypi-aa/blob/master/Project1-Intermediate.py?footer=0"></script>
 
 [Solution Source Code](https://github.com/raspberrypi-aa/raspberrypi-aa/blob/b839e8b4e9e4ae2409257a986e29a3df6b9e7038/RaspberryPi_Toolbox/Project1-Intermediate.py) - Click to view

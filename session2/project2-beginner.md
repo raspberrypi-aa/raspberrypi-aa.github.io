@@ -15,7 +15,7 @@ For better accuracy, you should use the GPIO interrupt functions (think wait_for
 <img src="https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/Schematics/RaspberryPi-Stopwatch.png"/>
 
 ###Source Code
-<script src="http://gist-it.appspot.com/github/raspberrypi-aa/raspberrypi-aa/blob/master/RaspberryPi_Toolbox/Project2-Beginner.py"></script>
+<script src="http://gist-it.appspot.com/github/raspberrypi-aa/raspberrypi-aa/blob/master/Project2-Beginner.py"></script>
 
 
 
