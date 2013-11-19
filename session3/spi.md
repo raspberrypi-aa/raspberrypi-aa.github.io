@@ -140,6 +140,7 @@ if __name__ == '__main__':
         GPIO.cleanup()
         sys.exit(0)
 {% endhighlight %}
+[Solution Source Code](https://github.com/raspberrypi-aa/raspberrypi-aa/blob/master/spi_bitbang_test.py)
 
 ## Hardware Implementation
 
@@ -218,6 +219,7 @@ if __name__ == '__main__':
         spi.close() 
         sys.exit(0)
 {% endhighlight %}
+[Solution Source Code](https://github.com/raspberrypi-aa/raspberrypi-aa/blob/master/spi_hardware_test.py)
 
 ### References
 * [MCP3008 Datasheet](https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/MCP3008-SPI-AnalogToDigitalConverter.pdf)
