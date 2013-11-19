@@ -25,6 +25,15 @@ Here is how the analog to digital converter works:
 3. Read the value back from the DC. a) Pulse the clock 12 times, each time reading the value from the MISO pin. b) The first bit is a an empty bit, followed by a NULL bit (which can be ignored). The next 10 bits are the digital value.
 4. Set the CS line low to end the transaction
 
+### Setting up Raspbian Wheezy for SPI
+{% highlight bash %}
+ sudo nano /etc/modprobe.d/raspi-blacklist.conf 
+  Comment out both lines
+#blacklist spi-bcm2708
+
+sudo modprobe spi_bcm2708
+sudo modprobe i2c_bcm2708
+{% endhighlight %}
 
 ### Our first bitbang'd implementation
 
