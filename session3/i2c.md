@@ -15,6 +15,18 @@ I2C is a two wire bus, the connections are called SDA (Serial Data) and SCL (Ser
 The Rasperry Pi has two I2C buses. One is available on the GPIO (P1) header, the other is only available from the P5 header. To access these, you'll need to solder on your own header pins.
 
 ### Preparing RPi for I2C
+Comment out the i2c-bcm2708 line from the raspi-blacklist.conf file:
+{% highlight bash %}
+  sudo nano /etc/modprobe.d/raspi-blacklist.conf 
+#blacklist i2c-bcm2708 
+
+
+Add i2c-dev to /etc/modules
+
+sudo modprobe i2c_bcm2708
+sudo modprobe i2c-dev 
+
+{% endhighlight %}
 
 Confirm that the i2c modules are loaded and active:
 {% highlight bash %}

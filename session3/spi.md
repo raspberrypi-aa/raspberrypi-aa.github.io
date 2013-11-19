@@ -26,13 +26,12 @@ Here is how the analog to digital converter works:
 4. Set the CS line low to end the transaction
 
 ### Setting up Raspbian Wheezy for SPI
+Comment out the spi-bcm2708 line in the raspi-blacklist.conf file
 {% highlight bash %}
  sudo nano /etc/modprobe.d/raspi-blacklist.conf 
-  Comment out both lines
 #blacklist spi-bcm2708
 
 sudo modprobe spi_bcm2708
-sudo modprobe i2c_bcm2708
 {% endhighlight %}
 
 ### Our first bitbang'd implementation
