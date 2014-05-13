@@ -14,11 +14,11 @@ To control more than 1 servo, some timing accuracy can be traded off for more ch
 
 ## Servoblaster
 Installing Servoblaster:<br/>
-1. git clone /github.com/richardghirst/PiBits.git
-2. cd PiBits/ServoBlaster/user
-3. make
-4. sudo make install
-5. Verify that servoblaster is installed: ls /dev/servoblaster
+1. git clone /github.com/richardghirst/PiBits.git <br/>
+2. cd PiBits/ServoBlaster/user <br/>
+3. make <br/>
+4. sudo make install <br/>
+5. Verify that servoblaster is installed: ls /dev/servoblaster <br/>
 
 Servoblaster is controlled by writing into the /dev/servoblaster file. The content is written as `<servo-number>=<servo-position>`. The first field written is the servo number. The following table shows which output pin each servo channel is connected to. 
 <table>

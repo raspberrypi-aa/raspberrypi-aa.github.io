@@ -42,5 +42,5 @@ Noe that the function named callback_function() has to take 1 argument as input.
 
 
 ### For more info:
-* [RPi-GPIO Python Inputs](https://code.google.com/p/raspberry-gpio-python/wiki/Inputs)
+* [RPi-GPIO Python Inputs](http://sourceforge.net/p/raspberry-gpio-python/wiki/Inputs/)
 * [Python Queue Docs](http://docs.python.org/2/library/queue.html)
