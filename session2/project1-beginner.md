@@ -19,7 +19,7 @@ V=IR<br/>
 1.1V = .002A * R<br/>
 R=550 Ohms<br/>
 
-  A smaller resistor(or none) would allow too much curren through the LED and the Raspberry Pi's GPIO port, potentially damaging the port and the LED.
+  A smaller resistor(or none) would allow too much current through the LED and the Raspberry Pi's GPIO port, potentially damaging the port and the LED.
 
 ###LED Blink Breadboard Layout
 <img src="https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/Schematics/RaspberryPi-LED%20Blink.png" alt="LED Blink Breadboard Layout" width="300px"/>
@@ -35,3 +35,6 @@ Next, create a stopwatch script. When the user presses a button, a timer should 
 
 #### Source Code
 <script src="http://gist-it.appspot.com/github/raspberrypi-aa/raspberrypi-aa/blob/master/stopwatch.py"></script>
+
+### References
+* [Resistor Calculator](http://www.dannyg.com/examples/res2/resistor.htmhttp://www.dannyg.com/examples/res2/resistor.htm)

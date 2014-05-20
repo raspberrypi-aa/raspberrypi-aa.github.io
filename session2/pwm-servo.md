@@ -35,7 +35,7 @@ Servoblaster is controlled by writing into the /dev/servoblaster file. The conte
 The allowable position values depend on your servo, for mine values between 80 and 249 were accepted. The servo specification often provides the number of steps the servo supports. 
 
 ####Source Code
-<script src="http://gist-it.appspot.com/github/raspberrypi-aa/raspberrypi-aa/blob/master/servoblaster-test.py"></script>
+<script src="http://gist-it.appspot.com/github/raspberrypi-aa/raspberrypi-aa/blob/master/servoblaster.py"></script>
 
 ###Appendix A: Adafruit Occidentalis PWM Instructions
 
