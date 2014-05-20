@@ -28,7 +28,7 @@ You will need to reboot before the camera is available for use.
 
 ### Taking Pictures/Videos
 
-The camera can be controlled either through a command line interface. There are three utilities available, `raspistill`, `raspivid`, and `raspiyuv`: <br/>
+The camera can be controlled either through a command line interface. There are three utilities available, `raspistill`, `raspivid`, and `raspiyuv`: <br/><br/>
 * `raspistill` - Basic camera application
 * `raspivid` - Records live video
 * `raspiyuv` - Camera application but outputs uncompressed (large) images. These are similar to RAW images if you are familiar with digital photography
@@ -75,11 +75,10 @@ This can be played back using VLC or even streamed live to other computers.
 
 Before using the library, it must first be installed on your Raspberry Pi. pip (Pip Installs Python) is the application which manages Python packages, and it too must first be installed before use.
 
-<% highlight bash %>
+```bash
 pi@raspberrypi:~$ sudo apt-get install python-pip
 pi@raspberrypi:~$ sudo pip install picamera
-<% end_highlight %>
-
+```
 _source code here_
 
 Both flickr and Facebook offer Public APIs to upload your photos directly from python. Using web APIs will be discussed in more detail next week. 
