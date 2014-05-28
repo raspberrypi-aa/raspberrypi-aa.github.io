@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
 {% endhighlight %}
 
-This is the most basic Flask program one could write, but it won't do anything yet. To respond to request, you must create a handler function. Our first handler function will simply write "Hello World" back to the client without any fancy HTML formatting. The funny-looking line starting with @ is called a decorator. Its job is to choose which function runs when a URL is accessed. To run this function, you would enter http://<pi-ip>:5000/ into your web browser. 
+This is the most basic Flask program one could write, but it won't do anything yet. To respond to request, you must create a handler function. Our first handler function will simply write "Hello World" back to the client without any fancy HTML formatting. The funny-looking line starting with @ is called a decorator. Its job is to choose which function runs when a URL is accessed. To run this function, you would enter http://pi-ip:5000/ into your web browser. 
 
 {% highlight python %}
 # Define handlers for each path
