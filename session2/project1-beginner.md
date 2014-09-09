@@ -20,3 +20,6 @@ Next, create a stopwatch script. When the user presses a button, a timer should 
 
 #### Source Code
 <script src="http://gist-it.appspot.com/github/raspberrypi-aa/raspberrypi-aa/blob/master/stopwatch.py"></script>
+
+### References
+* [Resistor Calculator](http://www.dannyg.com/examples/res2/resistor.htmhttp://www.dannyg.com/examples/res2/resistor.htm)
