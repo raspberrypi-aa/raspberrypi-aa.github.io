@@ -19,7 +19,8 @@ Polled input is the simplest method of input on the Raspberry Pi. For a desired 
 {% endhighlight %}
 
 In the above program, pin 15 is originally high. When the button is pressed, pin 15 goes low (a value of 0) and the while loop exits. The message is printed to the output. The "time.sleep(.01)" command is used to add a slight delay to the program, giving other tasks on the system time to run. Without the delay, the program will drive the CPU usage of the Raspberry Pi up to 100%, possibly slowing other programs down or even preventing them from running. With the above code, it is technically possible that a button press can be missed if the signal goes to 0 and then returns back to 1 before the input state is checked again. This is especially likely if the timeout is longer than 10ms, the input is a pulse shorter than 10ms, or there are other actions occurring in the while loop. 
-<br/>
+
+### wait\_for\_edge()
 The GPIO library provides a cleaner way of doing polled input, using the `wait_for_edge()` function. Using `wait_for_edge()` eliminates the need for the while loop or the delay. There is little to no chance of missing an input event here.
 
 {% highlight python %}
@@ -28,7 +29,11 @@ The GPIO library provides a cleaner way of doing polled input, using the `wait_f
 {% endhighlight %}
 
 The second parameter to the `wait_for_edge()` can be either GPIO.RISING, GPIO.FALLING, or GPIO.BOTH. These describe either rising (logic low to logic high) or falling (logic high to logic low) levels, or either for GPIO.BOTH. We will see this values used in the interrupt driven input calls as well. 
+
+### event_detected()
 A mix between polled and interrupt driven input uses the `event_detected()` function. While your program explicitly checks if an input has changed, it is implemented inside the GPIO library using interrupts. To use the `event_detected()` function, you have to first call `GPIO.add_event_detect(pin, GPIO.RISING/FALLING/BOTH)`. Then, calling `GPIO.event_detected(pin)` will return True or False, depending on if the given event has occurred since the last time `event_detected()` was called. This is a good way to ensure that no input events such as button presses are missed. Your program can check periodically (once every second or so) so it can spend its time doing other things. 
+
+### add\_event\_detect() Callback Mechanism
 The final, and arguably most powerful form of input is interrupt driven. You specify a function that is run (i.e. called) as soon as the input changes state. This function is known as a callback function. The GPIO library keeps a separate thread for all interrupt callbacks, and the callback functions are serialized (run one at a time) on this separate thread. To use these interrupts, first setup the callback and associate it to the pin using `add_event_detect()`. You can associate multiple callbacks with the same input pin:
 
 {% highlight python %}

@@ -10,21 +10,24 @@ Most communication on the web is run over a protocol known as Hypertext Transfer
 
 HTTP has several types of requests (or methods) in it. We'll be dealing with the two main ones today: GET and POST. GET retrieves data (it never changes the contents of the requested page) from the server and POST sends data to the server. There are also HEAD, PUSH, and DELETE, among others.
 
-While its possible and pretty straightforward to write your own HTTP server code, Python already has several frameworks that handle all the nitty-gritty of the protocol for us. With Flask, all you need to worry about is how your program behaves in response to an HTTP request. Some alternatives to flask are CherryPy, Django, Pylons, Zope. I find flask to be the simplest and lightest weight, so thats what I'll be showing here.
+While its possible and pretty straightforward to write your own HTTP server code, Python already has several frameworks that handle all the nitty-gritty of the protocol for us. With Flask, all you need to worry about is how your program behaves in response to an HTTP request. Some alternatives to Flask are CherryPy, Django, Pylons, Zope. I find Flask to be the simplest and lightest weight, so thats what I'll be showing here.
 
 ### Installing Flask
-Installing flask is a cinch, but I recommend using a virtualenv because it will pull in a bunch of other pre-prequisites(Werkzeug,Jinja2,itsdangerous,markupsafe) as part of the installation. As always, this will take a few minutes.
+Installing Flask is a cinch, but I recommend using a virtualenv because it will pull in a bunch of other pre-prequisites(Werkzeug,Jinja2,itsdangerous,markupsafe) as part of the installation. As always, this will take a few minutes.
 {% highlight bash %}
-pip install flask
+sudo apt-get install python-pip # If you have not already done so
+virtualenv FlaskEnv
+source FlaskEnv/bin/activate
+pip install Flask
 {% endhighlight %}
 
 
 ### Creating a Flask application
-The first task when using Flask is to create a Flask application and start the srver. By default, the Flask server will be in debug mode. In debug mode, Flask will only be accessible from the Raspberry Pi, not from any other devices. Debug mode will also turn on crash dumps, to make debugging problems easier. To access Flask from any other device (Laptop, smartphone, etc), you must start flask with the command "app.run(host="0.0.0.0")". By default, Flask will run on port 5000, which you will need to enter as part of the URL to access Flask. 
+The first task when using Flask is to create a Flask application and start the srver. By default, the Flask server will be in debug mode. In debug mode, Flask will only be accessible from the Raspberry Pi, not from any other devices. Debug mode will also turn on crash dumps, to make debugging problems easier. To access Flask from any other device (Laptop, smartphone, etc), you must start Flask with the command "app.run(host="0.0.0.0")". By default, Flask will run on port 5000, which you will need to enter as part of the URL to access Flask. 
 
 {% highlight python %}
 #!/usr/bin/env python
-from flask import Flask, request, Response
+from Flask import Flask, request, Response
 
 # Create the server
 app = Flask(__name__)
@@ -36,7 +39,7 @@ if __name__ == '__main__':
 
 {% endhighlight %}
 
-This is the most basic Flask program one could write, but it won't do anything yet. To respond to request, you must create a handler function. Our first handler function will simply write "Hello World" back to the client without any fancy HTML formatting. The funny-looking line starting with @ is called a decorator. Its job is to choose which function runs when a URL is accessed. To run this function, you would enter http://<pi-ip>:5000/ into your web browser. 
+This is the most basic Flask program one could write, but it won't do anything yet. To respond to requests, you must create a handler function. Our first handler function will simply write "Hello World" back to the client without any fancy HTML formatting. The funny-looking line starting with @ is called a decorator. Its job is to choose which function runs when a URL is accessed. To run this function, you would enter http://<pi-ip>:5000/ into your web browser. 
 
 {% highlight python %}
 # Define handlers for each path
@@ -48,7 +51,17 @@ def root():
 ### GET Parameters
   There are two ways to pass parameters to a webpage, URL path parameters and query parameters. An example of a URL with a path parameter is http://example.com/securitySystem/sensorState/15. Here, the URL is requesting information about sensor 15. Depending on how the program is structured, this could be alternately requested as http://example.com/securitySystem/sensorState?sensor=15. In this example the query parameters are everything after the ? is makes up a set of key/value parameters. Here the key is "sensor" and the value is "15". 
 
-To access the query params, flask provides the request object, which has an args dictionary. Desired keys can be looked up in the args dictionary. If the key is missing, Python will throw a KeyError exception (like all dictionaries). 
+#### Path Parameters
+To use a URL path parameter, you must tell Flask where in the URL the parameters lie. The parameter will now be passed to the handler function as an argument, instead of using the requests.args object. You can specify the type of the parameter (i.e. int, string), otherwise it will be left as a string. 
+
+{% highlight python %}
+@app.route('/echoParam2/<parameter>')
+def echoParam2(parameter):
+    return parameter
+{% endhighlight %}
+
+#### Query Parameters
+To access the query params, Flask provides the request object, which has an args dictionary. Desired keys can be looked up in the args dictionary. If the key is missing, Python will throw a KeyError exception (like all dictionaries). 
 
 {% highlight python %}
 # Test with: curl http://localhost:5000/echoParam?k=v\&k1=v1
@@ -58,15 +71,6 @@ def echoParam():
         return str(request.args['k'])
     except KeyError:
         return "Missing parameter"
-{% endhighlight %}
-
-To use a URL path parameter, you must tell flask where in the URL the parameters lie. The parameter will now be passed to the handler function as an argument, instead of using the requests.args object. You can specify the type of the parameter (i.e. int, string), otherwise it will be left as a string. 
-
-{% highlight python %}
-@app.route('/echoParam2/<parameter>')
-def echoParam2(parameter):
-    return parameter
-
 {% endhighlight %}
 
 ### Posting Data
@@ -93,8 +97,6 @@ This template will output a simple Python variable called name. It will also sho
     <title>Template Test</title>
   </head>
   
- <!-- Template Reference: http://jinja.pocoo.org/docs/templates/ -->
-  
 <p>{{ name }} </p>
 
 {% if birthday %}
@@ -106,10 +108,10 @@ This template will output a simple Python variable called name. It will also sho
 </html>
 {% endhighlight %} 
 
-The flask code to make use of the template looks the same as all other Flask code described, with the addition of the render_template() function. render_template() is passed several arguments. First the filename of the template, followed by all variables that will be available to the template 
+The Flask code to make use of the template looks the same as all other Flask code described, with the addition of the render_template() function. render_template() is passed several arguments. First the filename of the template, followed by all variables that will be available to the template.
 
 {% highlight python %}
-from flask import render_template
+from Flask import render_template
 @app.route('/template')
 def template():
     return render_template('template_test.html',
@@ -119,4 +121,5 @@ def template():
 
 ## References
 * [Flask Documentation](http://flask.pocoo.org)
-* [Flask Example Code](https://github.com/raspberrypi-aa/raspberrypi-aa/blob/master/RaspberryPi_Toolbox/FlaskTest.py)
+* [Jinja2 Template Documentation](http://jinja.pocoo.org/docs/dev/templates/)
+* [Flask Example Code](https://github.com/raspberrypi-aa/raspberrypi-aa/blob/master/FlaskTest.py)
