@@ -13,11 +13,9 @@ HTTP has several types of requests (or methods) in it. We'll be dealing with the
 While its possible and pretty straightforward to write your own HTTP server code, Python already has several frameworks that handle all the nitty-gritty of the protocol for us. With Flask, all you need to worry about is how your program behaves in response to an HTTP request. Some alternatives to Flask are CherryPy, Django, Pylons, Zope. I find Flask to be the simplest and lightest weight, so thats what I'll be showing here.
 
 ### Installing Flask
-Installing Flask is a cinch, but I recommend using a virtualenv because it will pull in a bunch of other pre-prequisites(Werkzeug,Jinja2,itsdangerous,markupsafe) as part of the installation. As always, this will take a few minutes.
+Installing Flask is a cinch, but it will pull in a bunch of other pre-prequisites(Werkzeug,Jinja2,itsdangerous,markupsafe) as part of the installation. As always, this will take a few minutes.
 {% highlight bash %}
 sudo apt-get install python-pip # If you have not already done so
-virtualenv FlaskEnv
-source FlaskEnv/bin/activate
 pip install Flask
 {% endhighlight %}
 
@@ -27,7 +25,7 @@ The first task when using Flask is to create a Flask application and start the s
 
 {% highlight python %}
 #!/usr/bin/env python
-from Flask import Flask, request, Response
+from Flask import Flask
 
 # Create the server
 app = Flask(__name__)
@@ -39,7 +37,7 @@ if __name__ == '__main__':
 
 {% endhighlight %}
 
-This is the most basic Flask program one could write, but it won't do anything yet. To respond to requests, you must create a handler function. Our first handler function will simply write "Hello World" back to the client without any fancy HTML formatting. The funny-looking line starting with @ is called a decorator. Its job is to choose which function runs when a URL is accessed. To run this function, you would enter http://<pi-ip>:5000/ into your web browser. 
+This is the most basic Flask program one could write, but it won't do anything yet. To respond to requests, you must create a handler function. Our first handler function will simply write "Hello World" back to the client without any fancy HTML formatting. The funny-looking line starting with `@` is called a decorator. Its job is to choose which function runs when a URL is accessed. To run this function, you would enter http://<pi-ip>:5000/ into your web browser. 
 
 {% highlight python %}
 # Define handlers for each path
@@ -49,10 +47,10 @@ def root():
 {% endhighlight %}
 
 ### GET Parameters
-  There are two ways to pass parameters to a webpage, URL path parameters and query parameters. An example of a URL with a path parameter is http://example.com/securitySystem/sensorState/15. Here, the URL is requesting information about sensor 15. Depending on how the program is structured, this could be alternately requested as http://example.com/securitySystem/sensorState?sensor=15. In this example the query parameters are everything after the ? is makes up a set of key/value parameters. Here the key is "sensor" and the value is "15". 
+  There are two ways to pass parameters to a webpage, URL path parameters and query parameters. An example of a URL with a path parameter is `http://example.com/securitySystem/sensorState/15`. Here, the URL is requesting information about sensor 15. Depending on how the program is structured, this could be alternately requested as `http://example.com/securitySystem/sensorState?sensor=15`. In this example the query parameters are everything after the ? is makes up a set of key/value parameters. Here the key is "sensor" and the value is "15". 
 
 #### Path Parameters
-To use a URL path parameter, you must tell Flask where in the URL the parameters lie. The parameter will now be passed to the handler function as an argument, instead of using the requests.args object. You can specify the type of the parameter (i.e. int, string), otherwise it will be left as a string. 
+To use a URL path parameter, you must tell Flask where in the URL the parameters lie. The parameter will now be passed to the handler function as an argument, instead of using the requests.args object. 
 
 {% highlight python %}
 @app.route('/echoParam2/<parameter>')
@@ -60,11 +58,23 @@ def echoParam2(parameter):
     return parameter
 {% endhighlight %}
 
+You can specify the type of the parameter (i.e. int, string), otherwise it will be left as a string. 
+
+{% highlight python %}
+@app.route('/echoParamInt/<int:parameter>')
+def echoParamInt(parameter):
+    return 3+parameter
+{% endhighlight %}
+
+
 #### Query Parameters
-To access the query params, Flask provides the request object, which has an args dictionary. Desired keys can be looked up in the args dictionary. If the key is missing, Python will throw a KeyError exception (like all dictionaries). 
+In some cases, query params can come in handy, for example if you are submitting a form (i.e. username/password, guestbook messages, etc...) If you'd like to use query params, Flask provides the request object, which has an args dictionary. Desired keys can be looked up in the args dictionary. If the key is missing, Python will throw a KeyError exception (like all dictionaries). 
 
 {% highlight python %}
 # Test with: curl http://localhost:5000/echoParam?k=v\&k1=v1
+
+from Flask import Flask, request
+
 @app.route('/echoParam')
 def echoParam():
     try:
@@ -78,6 +88,9 @@ So far we have dealt with retrieving information from the Raspberry Pi, but what
 
 {% highlight python %}
 # Test with:  curl --data key=val --data key2=val2 -X POST http://localhost:5000/postTest
+
+from Flask import Flask, request
+
 @app.route('/postTest', methods=['POST'])
 def postTest():
     postData = request.form['key']
@@ -97,13 +110,13 @@ This template will output a simple Python variable called name. It will also sho
     <title>Template Test</title>
   </head>
   
-<p>{{ name }} </p>
+<p>\{\{ name \}\} </p>
 
-{% if birthday %}
+\{\% if birthday \%\}
   <p>Happy Birthday</p>
-{% else %}
+\{\% else \%\}
   <p>NO Birthday</p>
-{% endif %}
+\{\% endif \%\}
 
 </html>
 {% endhighlight %} 

@@ -3,6 +3,23 @@ layout: default
 title: Session 2- Polled and Interrupt Driven Input
 date: September 4, 2013
 ---
+## Inputs on the Raspberry Pi
+This is the circuit to add an input switch to the Raspberry Pi:<br/>
+<img src="https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/Schematics/RaspberryPi-Stopwatch.png" />
+
+There is a switch connected to ground on one side and to +3.3V on the other side. The connection to 3.3V is via a 10k "pull-up" resistor. This resistor limits the amount of current flowing through the switch when the button is pressed. 
+
+## Internal Pull-ups and Pull-down Resistors
+The Raspberry Pi has internal 50k Ohm pull up and pull down resistors on many of its GPIO pins. These internal resistors can be activated when setting a GPIO pin as an input as we will see below. 
+
+* If using the pull-up resistor, no external resistor is needed and the switch should be connected between GPIO pin and ground
+* If using the pull-down resistor, no external resistor is needed and the switch should be connected between GPIO pin and 3.3V
+
+{% highlight python %}
+  GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP);
+#                or
+  GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN);
+{% endhighlight %}
 
 ## Polled and Interrupt Driven Input Methods
 

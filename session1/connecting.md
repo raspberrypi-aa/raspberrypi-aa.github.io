@@ -82,9 +82,9 @@ Login with:
 </pre>
 You may change the password now if you wish to do so, by running `passwd` 
 8. Set the hostname to something unique (some variation on your name or email works well). 
-    a) Run sudo nano /etc/hostname
+    1. Run `sudo nano /etc/hostname`
     Change “raspberrypi” to whatever you want your hostname to be. 
-    b) Run sudo nano /etc/hosts
+    2. Run `sudo nano /etc/hosts`
         Change the line from:<pre>127.0.0.1 raspberrypi </pre>
             to:
 	    <pre>127.0.0.1 whatever</pre>
@@ -103,10 +103,9 @@ In this example the IP Address is 192.168.1.102
 
 ### Connecting via SSH
 1) At an OS X or Linux command line, run:
-ssh <ip address from step 9> -l pi
+ssh \<ip address from step 9\> -l pi 
 
-2) On Windows, start PuTTY and set the options as follows (replacing with your 
-IP address):
+2) On Windows, start PuTTY and set the options as follows (replacing with raspberrypi_n_.local or your IP address):
 ![Putty SSH Connection](/session1/PuttySSHSetup.png)
 
 3) Click Open to connect
@@ -125,12 +124,14 @@ Pi using the IP address above and port 5900
 
 ### Appendix A: Wi-Fi Setup 
 Requires USB Wifi dongle
-1. Open a text editor by running:
+
+1) Open a text editor by running:
 `sudo nano /etc/network/interfaces`
-2. Make the contents of the file as follows:
-3. Save and exit the file by hitting Control-X, then Yes
-4. Run:
-`sudo ifdown wlan0 && sudo ifup wlan0`
-5. If all goes well, you can obtain the ip address by running:
-`ip addr show wlan0`
+2) Make the contents of the file as follows:
 ![Wifi Setup](/session1/wifiSetup.png)
+3) Save and exit the file by hitting Control-X, then Yes
+4) Run:
+`sudo ifdown wlan0 && sudo ifup wlan0`
+5) If all goes well, you can obtain the ip address by running:
+`ip addr show wlan0`
+
