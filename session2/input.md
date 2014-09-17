@@ -27,7 +27,7 @@ Input on the Raspberry Pi can be done in two modes, polled and interrupt. Pollin
 Polled input is the simplest method of input on the Raspberry Pi. For a desired pin, the state of the input pin is checked for the input value. If the input value changes, the program can change its behavior. The simplest example of polled input is:
 
 {% highlight python %}
-  GPIO.setup(pin15, GPIO.input)
+  GPIO.setup(pin15, GPIO.IN)
 
   while GPIO.input(pin15) == 1:
      time.sleep(.01)

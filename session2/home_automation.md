@@ -16,8 +16,11 @@ sudo pip install flask-bootstrap
 {% endhighlight %}
 
 * Need RPi.GPIO installed  
-* Get the class source code (either using git clone or WebIDE)
-* Be sure to build the part of the circuit on your board before testing the code that uses those pins
+* Get the class source code
+    * On your Raspberry Pi type `git clone https://github.com/raspberrypi-aa/raspberrypi-aa.git`
+    * In the Adafruit WebIDE, clone the above repository
+    * Download Zip file by running `wget https://github.com/raspberrypi-aa/raspberrypi-aa/archive/master.zip` then `unzip master.zip`
+* Be sure to build the circuit on your board before testing the code that uses those pins
 
 
 ### Running the webserver
@@ -30,9 +33,9 @@ sudo pip install flask-bootstrap
 
 
 ## Flask Practice
-1. Point your computer's web browser at http://piname.local:5000/. You should see a webpage with a "Test" button on it. 
+1. Point your computer's web browser at http://*piname*.local:5000/. You should see a webpage with a "Test" button on it. 
 2. Clicking the "Test" button will make a request to "/test". If you click the button, it should fail with a 404 error, because no handler exists for the "/test" path
-3. Edit the flaskGpio.py file to add a handler for "/test" that will display a successful message to the user. You can display a message by setting the "successMsg" parameter in the call to render_template() 
+3. Open another ssh connection and use `nano` to edit the flaskGpio.py file. Add a handler for "/test" that will display a successful message to the user. You can display a message by setting the "successMsg" parameter in the call to render_template() 
 4. Clicking the button should now display a success message in the browser
 
 ## Click to turn lamp on/off
@@ -90,6 +93,7 @@ t.cancel()
 ## Track the time the mailman shows up
 1. Write a callback function (`mailboxCallback()`) that will record the current time into lastMailboxPush
 2. Set the mailbox pin as an input pin in the setup function
-3. Call add_event_detect() for the mailbox pin and provide the name of the callback from step 1
+3. Call add\_event\_detect() for the mailbox pin and provide the name of the callback from step 1
 
+[Solution Source Code](https://github.com/raspberrypi-aa/raspberrypi-aa/blob/89fda3c425ba063afe26125a204d780958761696/FlaskGpioTest/flaskGpio.py)
 

@@ -14,7 +14,7 @@ The LED should be connected to GPIO Pin 18 as shown in the below diagram. A 560 
 <img src="https://dl.dropboxusercontent.com/u/1733921/Raspberry%20Pi/Schematics/RaspberryPi-LED%20Blink.png" alt="LED Blink Breadboard Layout"/>
 
 #### Why a 560 Ohm resistor?
-  The resistor is needed to disspiate extra electrical energy (voltage) coming from the Raspberry Pi. The Pi's digital outputs run at 3.3V and most LEDs have a forward voltage of about 2.2 Volts. As the voltage supply (3.3V) always equals the voltage load (LED + Resistor), our resistor will have a drop of 1.1V across it. We must also keep in mind the current drawn from the Raspberry Pi's output pin. The Raspberry Pi can only source up to 4mA of current, meaning we must choose our resistor to limit the current to less than 4mA at 1.1V.  The current through the LED is determined by an equation known as Ohms Law. It takes the form V=IR, where V is the voltage drop across the resistor, I is the current through the resistor and R is the resistance. We'll use 2mA just to be safe. Using Ohm's Law, we can determine the proper resistance to use is 560 Ohms.<br/>
+  The resistor is needed to dissipate extra electrical energy (voltage) coming from the Raspberry Pi. The Pi's digital outputs run at 3.3V and most LEDs have a forward voltage of about 2.2 Volts. As the voltage supply (3.3V) always equals the voltage load (LED + Resistor), our resistor will have a drop of 1.1V across it. We must also keep in mind the current drawn from the Raspberry Pi's output pin. The Raspberry Pi can only source up to 4mA of current, meaning we must choose our resistor to limit the current to less than 4mA at 1.1V.  The current through the LED is determined by an equation known as Ohms Law. It takes the form V=IR, where V is the voltage drop across the resistor, I is the current through the resistor and R is the resistance. We'll use 2mA just to be safe. Using Ohm's Law, we can determine the proper resistance to use is 560 Ohms.<br/>
 <pre>V=IR
 1.1V = .002A * R
 R=550 Ohms
@@ -35,7 +35,7 @@ For the Raspberry Pi to turn the LED on and off, we must be able to control the 
 
 
 * Set the pin as an output
-    {% highlight python %} GPIO.setup(18, GPIO.OUTPUT, initial=GPIO.LOW) {% endhighlight %}
+    {% highlight python %} GPIO.setup(18, GPIO.OUT, initial=GPIO.LOW) {% endhighlight %}
 
 
 * Set the pin to high or low
