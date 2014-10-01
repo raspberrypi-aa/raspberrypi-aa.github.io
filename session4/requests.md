@@ -44,12 +44,13 @@ r = requests.get('http://google.com', auth=('user', pass'))
 {% endhighlight %}
 
 ### Creating a Forecast.IO account
-_ This service is free up to 10k requests per day. No billing info is needed to sign up. _
+*This service is free up to 10k requests per day. No billing info is needed to sign up.* 
+
 1. Go to [http://https://developer.forecast.io/](http://https://developer.forecast.io/) and click the "Register" button in the top right corner.
 2. Make note of your API Key on the bottom of the screen
 
 ### Requesting forecast.io data
-Use Python-requests to get forecast data for a given location and then print out tomorrow's temperature
+Use Python-requests to get forecast data for a given location and then print out tomorrow's weather
 
 {% highlight python %}
 import requests
@@ -65,13 +66,10 @@ r = requests.get(query_url)
 if r.status_code != 200:
   print "Error:", r.status_code
 
-#print r.text
-print "---"
-print json.dumps(r.json(),
-	sort_keys = True,
-	indent=4)
+json_weather = r.json()
 
-currentWeather =  r.json()['currently']['icon']
+print "Tomorrow will be ",
+currentWeather =  json_weather['currently']['icon']
 if "cloud" in currentWeather:
   print "Cloudy"
 elif "rain" in currentWeather:
