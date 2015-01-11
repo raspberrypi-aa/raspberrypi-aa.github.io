@@ -30,7 +30,7 @@ Materials for this class were purchased from [Amazon](http://www.amazon.com/?_en
 	* 10 180 Ohm Resistors
 	* 5 10k Ohm Resistors
 * [10ft Ethernet Cable](http://www.adafruit.com/product/730)
-* [USB TTL Serial Cable](http://www.adafruit.com/products/954)
+* [USB TTL Serial Cable](http://www.adafruit.com/products/856)
 * [Photocell](http://www.adafruit.com/products/161)
-* [8 channel 10-bit SPI Analog to Digital Converter (MCP23008)](http://www.adafruit.com/products/593)
+* [8 channel 10-bit SPI Analog to Digital Converter (MCP3008)](http://www.adafruit.com/products/593)
 * [BMP180 I2C Barometric Pressure and Temperature Sensor](http://www.adafruit.com/products/1603)
