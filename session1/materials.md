@@ -10,24 +10,23 @@ Materials for this class were purchased from [Amazon](http://www.amazon.com/?_en
 
 ## Materials List
 
-* [Canakit Raspberry Pi B+ Ultimate Starter Kit](http://www.amazon.com/gp/product/B00G1PNG54/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00G1PNG54&linkCode=as2&tag=twopossi-20&linkId=ZOG6PY4ULS2XG7SA)
-    * Raspberry Pi Model B+ w/ 512MB RAM
-	* Black Model B+ Case
+* [Canakit Raspberry Pi 2  Ultimate Starter Kit](http://www.amazon.com/CanaKit-Raspberry-Ultimate-Starter-Components/dp/B00G1PNG54)
+    * Raspberry Pi Model 2 w/ 1GB RAM
+	* Black Pi 2 Case
 	* USB Micro B Cable
-	* 5V USB Power Adapter
+	* 5V 2.5A USB Power Adapter
 	* Pi Cobbler Breakout Board
 	* 8GB SD Card w/ Raspbian Preloaded
 	* Breadboard and Wires
 	* 6ft HDMI Cable
 	* Wifi Adapter Dongle (Ralink RT5370)
 	* 2 Pushbutton switches
-	* 2 Toggle Switches
 	* 1 RGB LED
 	* 2 Red LEDs
 	* 2 Green LEDs
 	* 2 Yellow LEDs
 	* 2 Blue LEDs
-	* 10 180 Ohm Resistors
+	* 10 220 Ohm Resistors
 	* 5 10k Ohm Resistors
 * [10ft Ethernet Cable](http://www.adafruit.com/product/730)
 * [USB TTL Serial Cable](http://www.adafruit.com/products/856)
