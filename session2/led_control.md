@@ -17,7 +17,7 @@ The LED should be connected to GPIO Pin 18 as shown in the below diagram. A 220 
   The resistor is needed to dissipate extra electrical energy (voltage) coming from the Raspberry Pi. The Pi's digital outputs run at 3.3V and most LEDs have a forward voltage of about 2.2 Volts. The voltage supply (3.3V) always equals the voltage load (LED + Resistor), our resistor will have a drop of 1.1V across it. We must also keep in mind the current drawn from the Raspberry Pi's output pin. The Raspberry Pi can only source up to 5mA of current, meaning we must choose our resistor to limit the current to less than 5mA at 1.1V.  The current through the LED is determined by an equation known as Ohms Law. It takes the form V=IR, where V is the voltage drop across the resistor, I is the current through the resistor and R is the resistance. Using Ohm's Law, we can determine the proper resistance to use is 220 Ohms.<br/>
 <pre>V=IR
 1.1V = .005A * R
-R=2200 Ohms
+R=220 Ohms
 </pre>
 
 
