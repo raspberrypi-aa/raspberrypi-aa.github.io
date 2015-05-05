@@ -16,7 +16,7 @@ sudo pip install flask-bootstrap
 {% endhighlight %}
 
 * Need RPi.GPIO installed  
-* Get the class source code
+* Get the class source code, by doing ONE of the following options:
     * On your Raspberry Pi type `git clone https://github.com/raspberrypi-aa/raspberrypi-aa.git`
     * In the Adafruit WebIDE, clone the above repository
     * Download Zip file by running `wget https://github.com/raspberrypi-aa/raspberrypi-aa/archive/master.zip` then `unzip master.zip`

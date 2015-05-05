@@ -5,7 +5,7 @@ date: September 14, 2013
 ---
 
 ##Bash Script Control of GPIO Ports
-The Pi's GPIO ports can be controlled from the command line (i.e. bash), python scripts, and C/C++ programs. There are 26 GPIO ports available on the Pi. Some of them have special purposes or special hardware configurations and should be avoided for normal use.
+The Pi's GPIO ports can be controlled from the command line (i.e. bash), python scripts, and C/C++ programs. There are 17 GPIO ports available on the Pi. Some of them have special purposes or special hardware configurations and should be avoided for normal use.
 
 ####Using GPIO from bash
 
