@@ -20,12 +20,12 @@ The Rasperry Pi has two I2C buses. One is available on the GPIO (P1) header, the
 ![BMP180 Breadboard](./images/BMP180-i2c.png)
 
 ### Preparing RPi for I2C
-Comment out the i2c-bcm2708 line from the raspi-blacklist.conf file:
-{% highlight bash %}
-pi@raspberrypi:~$ sudo nano /etc/modprobe.d/raspi-blacklist.conf 
-
-#blacklist i2c-bcm2708 
-{% endhighlight %}
+#### Activate I2C Drivers
+On your Raspberry Pi, you must first enable the I2C drivers.
+1. Run `sudo raspi-config`
+2. At the menu, choose option `8. Advanced Options`
+3. Select `A7 I2C` and then say "Yes" to enable the I2C driver and "Yes" again to load the driver by default
+4. Reboot your Raspberry Pi by running `sudo reboot` back at the command line
 
 Add i2c-dev to /etc/modules
 {% highlight bash %}
@@ -35,7 +35,6 @@ i2c-dev
 
 Then from the prompt run:
 {% highlight bash %}
-sudo modprobe i2c_bcm2708
 sudo modprobe i2c-dev 
 {% endhighlight %}
 
@@ -43,7 +42,6 @@ Confirm that the i2c modules are loaded and active:
 {% highlight bash %}
 pi@raspberrypi ~ $ lsmod  | grep i2c
 i2c_dev                 6276  0
-i2c_bcm2708             4121  0
 {% endhighlight %}
 
 Install some i2c utilities:
