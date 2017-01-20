@@ -28,7 +28,7 @@ pi@pi-friedrich ~ $ sudo amixer controls
 The "PCM Playback Switch" control mutes and unmutes the Raspberry Pi. The "PCM Playback Volume" control sets the volume of the Raspberry Pi audio output. The current value of the control can be retrieved with the 'sudo amixer cget numid=<numid>' command, where <numid> is substituted with the number from the controls screen. For example, this command retrieves the current volume level. Here the volume is ... ...........
 
 
-To change the volume, run 'sudo mixer cset numid=1 70%'. This will set the volume to 70%. You can also use a decibel value to set the volume. You can modify the numid= value above to change the Playback Route or Playback Switch controls. To play audio, you can use the 'aplay' utility to playback .wav files. For .mp3 files, you must use the mpg321 utility. The Occidentalis distribution comes prepackaged with some sound files in:
+To change the volume, run 'sudo amixer cset numid=1 70%'. This will set the volume to 70%. You can also use a decibel value to set the volume. You can modify the numid= value above to change the Playback Route or Playback Switch controls. To play audio, you can use the 'aplay' utility to playback .wav files. For .mp3 files, you must use the mpg321 utility. The Occidentalis distribution comes prepackaged with some sound files in:
 
 * /usr/share/scratch/Media/sounds
 * /usr/share/sounds/alsa (This directory contains channel-specific sounds that let you play through specifically the front-left speaker, for example.)
